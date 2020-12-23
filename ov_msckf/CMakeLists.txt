@@ -104,31 +104,31 @@ target_include_directories(ov_msckf_lib PUBLIC src)
 ##################################################
 # Make binary files!
 ##################################################
+if (NOT ANDROID)
+
+    if (catkin_FOUND)
+
+        add_executable(run_serial_msckf src/ros_serial_msckf.cpp)
+        target_link_libraries(run_serial_msckf ov_msckf_lib ${thirdparty_libraries})
+
+        add_executable(run_subscribe_msckf src/ros_subscribe_msckf.cpp)
+        target_link_libraries(run_subscribe_msckf ov_msckf_lib ${thirdparty_libraries})
+
+        add_executable(run_simulation src/run_simulation.cpp)
+        target_link_libraries(run_simulation ov_msckf_lib ${thirdparty_libraries})
+
+    else ()
+
+        add_executable(run_simulation src/run_simulation.cpp)
+        target_link_libraries(run_simulation ov_msckf_lib ${thirdparty_libraries})
+
+    endif ()
 
 
-if (catkin_FOUND)
+    add_executable(test_sim_meas src/test_sim_meas.cpp)
+    target_link_libraries(test_sim_meas ov_msckf_lib ${thirdparty_libraries})
 
-    add_executable(run_serial_msckf src/ros_serial_msckf.cpp)
-    target_link_libraries(run_serial_msckf ov_msckf_lib ${thirdparty_libraries})
+    add_executable(test_sim_repeat src/test_sim_repeat.cpp)
+    target_link_libraries(test_sim_repeat ov_msckf_lib ${thirdparty_libraries})
 
-    add_executable(run_subscribe_msckf src/ros_subscribe_msckf.cpp)
-    target_link_libraries(run_subscribe_msckf ov_msckf_lib ${thirdparty_libraries})
-
-    add_executable(run_simulation src/run_simulation.cpp)
-    target_link_libraries(run_simulation ov_msckf_lib ${thirdparty_libraries})
-
-else()
-
-    add_executable(run_simulation src/run_simulation.cpp)
-    target_link_libraries(run_simulation ov_msckf_lib ${thirdparty_libraries})
-
-endif()
-
-
-add_executable(test_sim_meas src/test_sim_meas.cpp)
-target_link_libraries(test_sim_meas ov_msckf_lib ${thirdparty_libraries})
-
-add_executable(test_sim_repeat src/test_sim_repeat.cpp)
-target_link_libraries(test_sim_repeat ov_msckf_lib ${thirdparty_libraries})
-
-
+endif (NOT ANDROID)
