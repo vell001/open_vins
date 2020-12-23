@@ -96,7 +96,7 @@ if (catkin_FOUND)
         src/core/RosVisualizer.cpp
     )
 endif()
-add_library(ov_msckf_lib SHARED ${library_source_files})
+add_library(ov_msckf_lib STATIC ${library_source_files})
 target_link_libraries(ov_msckf_lib ${thirdparty_libraries})
 target_include_directories(ov_msckf_lib PUBLIC src)
 

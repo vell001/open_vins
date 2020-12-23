@@ -20,6 +20,29 @@
 
 #ifndef OV_CORE_COLOR_MACROS
 #define OV_CORE_COLOR_MACROS
+#if __ANDROID__
+
+#define RESET       ""
+#define BLACK       "#BLACK "             /* Black */
+#define RED         "#RED "             /* Red */
+#define GREEN       "#GREEN "             /* Green */
+#define YELLOW      "#YELLOW "             /* Yellow */
+#define BLUE        "#BLUE "             /* Blue */
+#define MAGENTA     "#MAGENTA "             /* Magenta */
+#define CYAN        "#CYAN "             /* Cyan */
+#define WHITE       "#WHITE "             /* White */
+#define REDPURPLE   "#REDPURPLE "             /* Red Purple */
+#define BOLDBLACK   "#BOLDBLACK "      /* Bold Black */
+#define BOLDRED     "#BOLDRED "      /* Bold Red */
+#define BOLDGREEN   "#BOLDGREEN "      /* Bold Green */
+#define BOLDYELLOW  "#BOLDYELLOW "      /* Bold Yellow */
+#define BOLDBLUE    "#BOLDBLUE "      /* Bold Blue */
+#define BOLDMAGENTA "#BOLDMAGENTA "      /* Bold Magenta */
+#define BOLDCYAN    "#BOLDCYAN "      /* Bold Cyan */
+#define BOLDWHITE   "#BOLDWHITE "      /* Bold White */
+#define BOLDREDPURPLE   "#BOLDREDPURPLE "  /* Bold Red Purple */
+
+#else
 
 #define RESET       "\033[0m"
 #define BLACK       "\033[30m"             /* Black */
@@ -41,5 +64,6 @@
 #define BOLDWHITE   "\033[1m\033[37m"      /* Bold White */
 #define BOLDREDPURPLE   "\033[1m\033[95m"  /* Bold Red Purple */
 
+#endif // __ANDROID__
 
 #endif  /* OV_CORE_COLOR_MACROS */

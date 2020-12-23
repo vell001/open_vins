@@ -47,6 +47,7 @@
 
 #include "VioManagerOptions.h"
 
+#include <utils/Platform.h>
 
 namespace ov_msckf {
 
